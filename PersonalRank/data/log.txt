@@ -1,0 +1,10 @@
+userid,itemdid,ratings
+A,a,4.5
+A,b,4.5
+A,d,4.5
+B,a,4.5
+B,c,4.5
+C,b,4.5
+C,e,4.5
+D,c,4.5
+D,d,4.5
