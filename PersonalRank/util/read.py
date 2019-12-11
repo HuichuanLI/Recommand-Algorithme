@@ -73,5 +73,5 @@ def get_item_info(input_file):
     return item_info
 
 
-if __name__ == "__main__":
-    print(get_graph_from_data("../data/ratings.txt")["1"])
+# if __name__ == "__main__":
+#     print(get_graph_from_data("../data/ratings.txt")["1"])
