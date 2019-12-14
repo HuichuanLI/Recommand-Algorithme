@@ -28,10 +28,38 @@
         time Decay
     online Recommendation
         Find top k Genre/Topic
-        
+
+## 总结召回算法        
 ### 基于领域的
 PR,userCF,itermCF,LFM,ALS
 ### 基于内容的
 ContentedBase
 ### 基于neural network的
 item2Vector
+![](1.png)
+
+
+### 离线评价
+![](2.png)
+
+训练集：周一到周五
+测试集:周六到周天
+### 在线评价收益
+![](3.png)
+
+
+### 排序算法
+召回其实就是天花板，排序其实就是逼近这个天花班
+![](4.png)
+
+![](5.png)
+
+### 分类
+    单一浅层模型
+        LR，FM
+    浅层模型的组合
+        Tree
+    深度学习
+        Tensorflow
+
+![](6.png)
