@@ -46,6 +46,7 @@ def get_item_cate(ave_score, input_file):
         ave_score: a dict , key itemid value rating score
         input_file: item info file
     Return:
+        # item profile
         a dict: key itemid value a dict, key: cate value:ratio
         a dict: key cate value [itemid1, itemid2, itemid3]
     """
@@ -57,6 +58,7 @@ def get_item_cate(ave_score, input_file):
     record = {}
     cate_item_sort = {}
     fp = open(input_file)
+    # 每个Category 选择前面100书
     topk = 100
     for line in fp:
         if linenum == 0:

@@ -13,7 +13,7 @@
 
     Word2Vctor --- Cbow
     Skip Gram 
-### 基于内容ContentBase算法 [代实现]
+### 基于内容ContentBase算法 [实现]
     优点：
     1. 思想简单
     2. 独立性
@@ -28,3 +28,10 @@
         time Decay
     online Recommendation
         Find top k Genre/Topic
+        
+### 基于领域的
+PR,userCF,itermCF,LFM,ALS
+### 基于内容的
+ContentedBase
+### 基于neural network的
+item2Vector
