@@ -7,6 +7,7 @@ feature selection and data selection
 
 import pandas as pd
 import numpy as np
+import sys
 
 
 def get_input(input_train_file, input_test_file):
@@ -32,22 +33,6 @@ def get_input(input_train_file, input_test_file):
     return train_data_df, test_data_df
 
 
-def ana_train_data(input_train_data, input_test_data, out_train_file, out_test_file, feature_num_file):
-    """
-    Args:
-        input_train_data:
-        input_test_data:
-        out_train_file:
-        out_test_file:
-        feature_num_file:
-    """
-    train_data_df, test_data_df = get_input(input_train_data, input_test_data)
-    print(train_data_df.columns)
-    process_dis_feature("workclass", train_data_df, test_data_df)
-
-    return train_data_df, test_data_df
-
-
 def label_trans(x):
     """
     Args:
@@ -67,8 +52,6 @@ def process_label_feature(lable_feature_str, df_in):
         df_in:DataFrameIn
     """
     df_in.loc[:, lable_feature_str] = df_in.loc[:, lable_feature_str].apply(label_trans)
-    process_label_feature("label", train_data_df)
-    process_label_feature("label", test_data_df)
 
 
 def dict_trans(dict_in):
@@ -112,13 +95,122 @@ def process_dis_feature(feature_str, df_train, df_test):
     Return:
         the dim of the feature output
     process dis feature for lr train
+    其实就是将你认为的feature转换为离散特征，one-hot编码
     """
     origin_dict = df_train.loc[:, feature_str].value_counts().to_dict()
     feature_dict = dict_trans(origin_dict)
     df_train.loc[:, feature_str] = df_train.loc[:, feature_str].apply(dis_to_feature, args=(feature_dict,))
     df_test.loc[:, feature_str] = df_test.loc[:, feature_str].apply(dis_to_feature, args=(feature_dict,))
+    return len(feature_dict)
+
+
+def list_trans(input_dict):
+    """
+    Args:
+        input_dict:{'count': 30162.0, 'std': 13.134664776855985, 'min': 17.0, 'max': 90.0, '50%': 37.0,
+                    '25%': 28.0, '75%': 47.0, 'mean': 38.437901995888865}
+    Return:
+         a list, [0.1, 0.2, 0.3, 0.4, 0.5]
+    """
+    output_list = [0] * 5
+    key_list = ["min", "25%", "50%", "75%", "max"]
+    for index in range(len(key_list)):
+        fix_key = key_list[index]
+        if fix_key not in input_dict:
+            print("error")
+            sys.exit()
+        else:
+            output_list[index] = input_dict[fix_key]
+    return output_list
+
+
+def con_to_feature(x, feature_list):
+    """
+    Args:
+        x: element
+        feature_list: list for feature trans
+    Return:
+        str, "1,0,0,0"
+    """
+    feature_len = len(feature_list) - 1
+    result = [0] * feature_len
+    for index in range(feature_len):
+        if x >= feature_list[index] and x <= feature_list[index + 1]:
+            result[index] = 1
+            return ",".join([str(ele) for ele in result])
+    return ",".join([str(ele) for ele in result])
+
+
+def process_con_feature(feature_str, df_train, df_test):
+    """
+    Args:
+        feature_str: feature_str
+        df_train: train_data_df
+        df_test: test_data_df
+    Return:
+        the dim of the feature output
+    process con feature for lr train
+    处理连续值特征
+    """
+    origin_dict = df_train.loc[:, feature_str].describe().to_dict()
+    feature_list = list_trans(origin_dict)
+    df_train.loc[:, feature_str] = df_train.loc[:, feature_str].apply(con_to_feature, args=(feature_list,))
+    df_test.loc[:, feature_str] = df_test.loc[:, feature_str].apply(con_to_feature, args=(feature_list,))
+    return len(feature_list) - 1
+
+
+def output_file(df_in, out_file):
+    """
+
+    write data of df_in to out_file
+    """
+    fw = open(out_file, "w+")
+    for row_index in df_in.index:
+        outline = ",".join([str(ele) for ele in df_in.loc[row_index].values])
+        fw.write(outline + "\n")
+    fw.close()
+
+
+def ana_train_data(input_train_data, input_test_data, out_train_file, out_test_file, feature_num_file):
+    """
+    Args:
+        input_train_data:
+        input_test_data:
+        out_train_file:
+        out_test_file:
+        feature_num_file:
+    """
+    train_data_df, test_data_df = get_input(input_train_data, input_test_data)
+    label_feature_str = "label"
+    dis_feature_list = ["workclass", "education", "marital-status", "occupation",
+                        "relationship", "race", "sex", "native-country"]
+    con_feature_list = ["age", "education-num", "capital-gain", "capital-loss", "hours-per-week"]
+    index_list = ['age', 'workclass', 'education', 'education-num', 'marital-status', 'occupation', 'relationship',
+                  'race', 'sex', 'capital-gain', 'capital-loss', 'hours-per-week', 'native-country']
+    process_label_feature(label_feature_str, train_data_df)
+    process_label_feature(label_feature_str, test_data_df)
+    dis_feature_num = 0
+    con_feature_num = 0
+    feature_num_dict = {}
+    for dis_feature in dis_feature_list:
+        tmp_feature_num = process_dis_feature(dis_feature, train_data_df, test_data_df)
+        dis_feature_num += tmp_feature_num
+        feature_num_dict[dis_feature] = tmp_feature_num
+    for con_feature in con_feature_list:
+        tmp_feature_num = process_con_feature(con_feature, train_data_df, test_data_df)
+        con_feature_num += tmp_feature_num
+        feature_num_dict[con_feature] = tmp_feature_num
+
+    print(dis_feature_num)
+    print(con_feature_num)
+
+    output_file(train_data_df, out_train_file)
+    output_file(test_data_df, out_test_file)
+
+    return train_data_df, test_data_df
 
 
 if __name__ == "__main__":
-    train_data_df, test_data_df = ana_train_data("../data/train.txt", "../data/test.txt", "", "", "")
-    # process_label_feature("")
+    ana_train_data("../data/train.txt", "../data/test.txt", "../data/train_file", "../data/test_file",
+                   "../data/feature_num")
+# process_label_feature("")
