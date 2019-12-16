@@ -171,6 +171,54 @@ def output_file(df_in, out_file):
     fw.close()
 
 
+def add(str_one, str_two):
+    """
+    Args:
+        str_one:"0,0,1,0"
+        str_two:"1,0,0,0"
+    Return:
+        str such as"0,0,1,0,0"
+    """
+    list_one = str_one.split(",")
+    list_two = str_two.split(",")
+    list_one_len = len(list_one)
+    list_two_len = len(list_two)
+    return_list = [0] * (list_one_len * list_two_len)
+    try:
+        index_one = list_one.index("1")
+    except:
+        index_one = 0
+    try:
+        index_two = list_two.index("1")
+    except:
+        index_two = 0
+    return_list[index_one * list_two_len + index_two] = 1
+    return ",".join([str(ele) for ele in return_list])
+
+
+def combine_feature(feature_one, feature_two, new_feature, train_data_df, test_data_df, feature_num_dict):
+    """
+    Args:
+        feature_one:
+        feature_two:
+        new_feature: combine feature name
+        train_data_df:
+        test_data_df:
+        feature_num_dict: ndim of every feature, key feature name value len of the dim
+    Return:
+        new_feature_num
+    """
+    if feature_one not in feature_num_dict:
+        print("error")
+        sys.exit()
+    if feature_two not in feature_num_dict:
+        print("error")
+        sys.exit()
+    train_data_df[new_feature] = train_data_df.apply(lambda row: add(row[feature_one], row[feature_two]), axis=1)
+    test_data_df[new_feature] = test_data_df.apply(lambda row: add(row[feature_one], row[feature_two]), axis=1)
+    return feature_num_dict[feature_one] * feature_num_dict[feature_two]
+
+
 def ana_train_data(input_train_data, input_test_data, out_train_file, out_test_file, feature_num_file):
     """
     Args:
@@ -203,11 +251,18 @@ def ana_train_data(input_train_data, input_test_data, out_train_file, out_test_f
 
     print(dis_feature_num)
     print(con_feature_num)
+    new_feature_len = combine_feature("age", "capital-gain", "age_gain", train_data_df, test_data_df, feature_num_dict)
+    new_feature_len_two = combine_feature("capital-gain", "capital-loss", "loss_gain", train_data_df, test_data_df,
+                                          feature_num_dict)
+    print(new_feature_len)
+    print(new_feature_len_two)
+    train_data_df = train_data_df.reindex(columns=index_list + ["age_gain", "loss_gain", "label"])
+    test_data_df = test_data_df.reindex(columns=index_list + ["age_gain", "loss_gain", "label"])
 
     output_file(train_data_df, out_train_file)
     output_file(test_data_df, out_test_file)
     fw = open(feature_num_file, "w+")
-    fw.write("feature_num=" + str(dis_feature_num + con_feature_num))
+    fw.write("feature_num=" + str(dis_feature_num + con_feature_num + new_feature_len + new_feature_len_two))
 
     return train_data_df, test_data_df
 
