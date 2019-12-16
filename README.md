@@ -45,23 +45,23 @@ PR,userCF,itermCF,LFM,ALS[pyspark实现](https://github.com/HuichuanLI/Spark-in-
 ContentedBase
 ### 基于neural network的
 item2Vector
-![](1.png)
+![](./photo/1.png)
 
 
 ### 离线评价
-![](2.png)
+![](./photo/2.png)
 
 训练集：周一到周五
 测试集:周六到周天
 ### 在线评价收益
-![](3.png)
+![](./photo/3.png)
 
 
 ### 排序算法
 召回其实就是天花板，排序其实就是逼近这个天花班
-![](4.png)
+![](./photo/4.png)
 
-![](5.png)
+![](./photo/5.png)
 
 ### 分类
     单一浅层模型
@@ -71,7 +71,7 @@ item2Vector
     深度学习
         Tensorflow
 
-![](6.png)
+![](./photo/6.png)
 ### 逻辑回归 [完成]
 
 1.易于理解，计算代价小
@@ -80,15 +80,15 @@ item2Vector
 
 #### Loss Function
 
-![](7.png)
+![](./photo/7.png)
 
 #### 梯度
-![](8.png)
+![](./photo/8.png)
 
-![](9.png)
+![](./photo/9.png)
 
 
-![](10.png)
+![](./photo/10.png)
 
 
 ### 特征的统计和分析
@@ -103,17 +103,17 @@ item2Vector
 ### CART 算法，误差和gini系数
 
 
-![](11.png)
+![](./photo/11.png)
 ### CART 算法
-![](12.png)
+![](./photo/12.png)
 
 
 
-![](13.png)
+![](./photo/13.png)
 ### 分类树
-![](14.png)
+![](./photo/14.png)
 ### GINI 求解问题
-![](15.png)
+![](./photo/15.png)
 
 ### Boosting 算法
 
@@ -123,32 +123,32 @@ item2Vector
     每个提升树都权重一样Gradient，ada 是不一样的分类器误差率小的权重增大
 
 
-![](16.png)
-![](17.png)
-![](18.png)
+![](./photo/16.png)
+![](./photo/17.png)
+![](./photo/18.png)
 
 ### XGboost 算法
 
-![](19.png)
+![](./photo/19.png)
 
-![](20.png)
+![](./photo/20.png)
 
-![](21.png)
+![](./photo/21.png)
 
 #### Q 为节点的个数
 
-![](22.png)
+![](./photo/22.png)
 
-![](23.png)
+![](./photo/23.png)
 
-![](24.png)
+![](./photo/24.png)
 
-![](25.png)
+![](./photo/25.png)
 
 
 #### GBDT 和 LR 混合模型
 
-![](26.png)
+![](./photo/26.png)
 
 优缺点总结 
 优点：利用树模型做特征转化 
