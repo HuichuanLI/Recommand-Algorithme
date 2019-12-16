@@ -66,7 +66,47 @@ def get_auc(predict_list, test_label):
         test_label: label of  test data
     auc = (sum(pos_index)-pos_num(pos_num + 1)/2)/pos_num*neg_num
     """
+    total_list = []
+    for index in range(len(predict_list)):
+        predict_score = predict_list[index]
+        label = test_label[index]
+        total_list.append((label, predict_score))
+    sorted_total_list = sorted(total_list, key=lambda ele: ele[1])
+    neg_num = 0
+    pos_num = 0
+    count = 1
+    total_pos_index = 0
+    for zuhe in sorted_total_list:
+        label, predict_score = zuhe
+        if label == 0:
+            neg_num += 1
+        else:
+            pos_num += 1
+            total_pos_index += count
+        count += 1
+    auc_score = (total_pos_index - (pos_num) * (pos_num + 1) / 2) / (pos_num * neg_num)
+    print("auc:%.5f" % (auc_score))
 
+
+def get_accuary(predict_list, test_label):
+    """
+    Args:
+        predict_list: model predict score list
+        test_label: label of test data
+    """
+    score_thr = 0.5
+    right_num = 0
+    for index in range(len(predict_list)):
+        predict_score = predict_list[index]
+        if predict_score >= score_thr:
+            predict_label = 1
+        else:
+            predict_label = 0
+        if predict_label == test_label[index]:
+            right_num += 1
+    total_num = len(predict_list)
+    accuary_score = right_num / total_num
+    print("accuary:%.5f" % (accuary_score))
 
 
 def run_check_core(test_feature, test_label, model, score_func):
@@ -78,8 +118,8 @@ def run_check_core(test_feature, test_label, model, score_func):
         score_func: use different model to predict
     """
     predict_list = score_func(test_feature, model)
-    # get_auc(predict_list, test_label)
-    # get_accuary(predict_list, test_label)
+    get_auc(predict_list, test_label)
+    get_accuary(predict_list, test_label)
 
 
 def run_check(test_file, lr_coef_file, lr_model_file, feature_num_file):
