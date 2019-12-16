@@ -206,6 +206,8 @@ def ana_train_data(input_train_data, input_test_data, out_train_file, out_test_f
 
     output_file(train_data_df, out_train_file)
     output_file(test_data_df, out_test_file)
+    fw = open(feature_num_file, "w+")
+    fw.write("feature_num=" + str(dis_feature_num + con_feature_num))
 
     return train_data_df, test_data_df
 

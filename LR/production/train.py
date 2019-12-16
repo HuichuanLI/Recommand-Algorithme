@@ -8,6 +8,7 @@ import numpy as np
 from sklearn.linear_model import LogisticRegressionCV as lrcv
 
 from sklearn.externals import joblib
+from get_feature_num import get_feature_num
 
 
 def train_lr_model(train_file, model_coef, model_file, feature_num_file):
@@ -18,7 +19,7 @@ def train_lr_model(train_file, model_coef, model_file, feature_num_file):
         model_file:model pkl
         feature_num_file: file to record num of feature
     """
-    total_feature_num = 118
+    total_feature_num = get_feature_num(feature_num_file)
     train_label = np.genfromtxt(train_file, dtype=np.int32, delimiter=",", usecols=-1)
     feature_list = range(total_feature_num)
     train_feature = np.genfromtxt(train_file, dtype=np.int32, delimiter=",", usecols=feature_list)

@@ -16,6 +16,8 @@ import numpy as np
 from sklearn.externals import joblib
 import math
 
+from get_feature_num import get_feature_num
+
 
 def get_test_data(test_file, feature_num_file):
     """
@@ -25,7 +27,7 @@ def get_test_data(test_file, feature_num_file):
     Return:
          two np array: test _feature, test_label
     """
-    total_feature_num = 118
+    total_feature_num = get_feature_num(feature_num_file)
     test_label = np.genfromtxt(test_file, dtype=np.float32, delimiter=",", usecols=-1)
     feature_list = range(total_feature_num)
     test_feature = np.genfromtxt(test_file, dtype=np.float32, delimiter=",", usecols=feature_list)
