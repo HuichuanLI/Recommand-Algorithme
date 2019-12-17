@@ -1,20 +1,20 @@
 # 推荐算法
 主要在工业界使用了推荐算法在我们的系统中，为此终结了一下工业界使用的推荐算法和实现
 ## 召回算法
-### itemcf 物品协同过滤 【实现】
+### itemcf 物品协同过滤 [实现](https://github.com/HuichuanLI/Recommand-Algorithme/tree/master/CF)
 由此产生了基于物品的协同过滤（itemCF）给用户推荐和他们之前喜欢的物品相似的物品。不过ItemCF算法不是根据物品内容属性计算物品之间相似度，它主要通过分析用户的行为记录来计算物品之间的相似度。
 
 基于物品的协同过滤算法主要分为两步：
     1：计算物品之间的相似度
     2：根据物品之间相似度和用户的历史行为给用户生产推荐列表。
 
-### LFM 【实现】
+### LFM [实现](https://github.com/HuichuanLI/Recommand-Algorithme/tree/master/LFM)
 LFM算法是属于隐含语义模型的算法，不同于基于邻域的推荐算法。
 [link](https://blog.csdn.net/weixin_41843918/article/details/90216729)
-### Personal rank 【实现】
+### Personal rank [实现](https://github.com/HuichuanLI/Recommand-Algorithme/tree/master/PersonalRank)
 基于图的推荐算法，类似于Page Rank 算法
 [link](https://blog.csdn.net/bbbeoy/article/details/78646635)
-### item2vector 【实现】
+### item2vector [实现](https://github.com/HuichuanLI/Recommand-Algorithme/tree/master/Item2vec)
     顺序性时序性缺失
     item 是无区分性
     从log获取行为序列
@@ -22,7 +22,7 @@ LFM算法是属于隐含语义模型的算法，不同于基于邻域的推荐�
     计算item sim
 
     Word2Vctor --- Cbow/Skip Gram 
-### 基于内容ContentBase算法 [实现]
+### 基于内容ContentBase算法 [实现](https://github.com/HuichuanLI/Recommand-Algorithme/tree/master/ContentBased)
     优点：
     1. 思想简单
     2. 独立性
@@ -72,7 +72,7 @@ item2Vector
         Tensorflow
 
 ![](./photo/6.png)
-### 逻辑回归 [完成]
+### 逻辑回归 [完成](https://github.com/HuichuanLI/Recommand-Algorithme/tree/master/LR)
 
 1.易于理解，计算代价小
 2。容易欠拟合，需要特征工程
@@ -101,7 +101,7 @@ item2Vector
     3.特征的离散化: 分位数
     
     
-### Tree Model[完成] 
+### Tree Model[完成](https://github.com/HuichuanLI/Recommand-Algorithme/tree/master/Tree)
     1.完成GBDT模型
     2.完成GDBT+LR混合模型
 #### CART 算法，误差和gini系数
