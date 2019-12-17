@@ -179,3 +179,16 @@ item2Vector
 
 ![](./photo/33.png)
  
+ 
+ ### 总结
+ 
+ ![](./photo/34.png)
+
+User特征：基础特征
+Item特征：基础特征
+Context:几点
+UIRelation: 点击率。。。
+Static supplement:上架商品的
+
+特征数目
+1：100 和数据最好
