@@ -162,3 +162,20 @@ item2Vector
 ### Wide and Deep Model[代完成]
 
 ![](./photo/27.png)
+
+![](./photo/28.png)
+#### 因为zj 会有 k之和
+
+##### Generalization and Memorization
+![](./photo/29.png)
+
+    Wide 其实就是Memorization  一半离散特征和特征组合
+    Deep 其实就是Generalization 一半连续特征
+![](./photo/30.png)
+
+![](./photo/31.png)
+
+![](./photo/32.png)
+
+![](./photo/33.png)
+ 
