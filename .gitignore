@@ -4,3 +4,7 @@
 WD/data/wd/
 
 WD/data/wd_export/
+
+*.html
+
+itemCF/MovieLensRecSys/.idea/
