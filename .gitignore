@@ -8,3 +8,15 @@ WD/data/wd_export/
 *.html
 
 itemCF/MovieLensRecSys/.idea/
+
+user_portrait_recall/
+
+*.h5
+
+NCF/.ipynb_checkpoints/
+
+NCF/Data_Javier/
+
+MF/._.DS_Store
+
+MF/imgs/
