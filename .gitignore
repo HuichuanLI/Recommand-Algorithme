@@ -20,3 +20,19 @@ NCF/Data_Javier/
 MF/._.DS_Store
 
 MF/imgs/
+
+recommendation_system_codes/movielens/ml-1m/
+
+recommendation_system_codes/163_music_playlist.txt
+
+recommendation_system_codes/163_music_suprise_format.txt
+
+recommendation_system_codes/popular.playlist
+
+recommendation_system_codes/playlist.pkl
+
+recommendation_system_codes/song.pkl
+
+recommendation_system_codes/popular_song.pkl
+
+recommendation_system_codes/popular_playlist.pkl
