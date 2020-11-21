@@ -88,3 +88,23 @@ CTR/第7-8课 深度学习推荐系统/recommender_system/DAE_based_recommender_
 CTR/第7-8课 深度学习推荐系统/recommender_system/DAE_based_recommender_system/reco_encoder/data/__init__.py
 
 *.tsv
+
+Bandit/.ipynb_checkpoints/
+
+*.txt
+
+关联规则/code/MovieLens/.ipynb_checkpoints/
+
+*.pl
+
+*.libfm
+
+FM/xlearn/.ipynb_checkpoints/
+
+GBDT\+LR/gbm_lr/.idea/
+
+suprise/image_svd/
+
+*.ipynb
+
+*.exe
