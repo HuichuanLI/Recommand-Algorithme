@@ -108,3 +108,7 @@ suprise/image_svd/
 *.ipynb
 
 *.exe
+
+FM/xlearn/small_train.txt.bin
+
+FM/xlearn/small_test.txt.bin
