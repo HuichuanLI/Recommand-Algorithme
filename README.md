@@ -1,5 +1,7 @@
 # 推荐算法
 主要在工业界使用了推荐算法在我们的系统中，为此总结了一下工业界使用的推荐算法和实现
+## 图神经网络相关实现 [实现](https://github.com/HuichuanLI/GraphNeuralNetWork)
+
 ## 召回算法
 ### itemcf 物品协同过滤 [实现](https://github.com/HuichuanLI/Recommand-Algorithme/tree/master/CF)
 由此产生了基于物品的协同过滤（itemCF）给用户推荐和他们之前喜欢的物品相似的物品。不过ItemCF算法不是根据物品内容属性计算物品之间相似度，它主要通过分析用户的行为记录来计算物品之间的相似度。
