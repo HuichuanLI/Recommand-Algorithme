@@ -111,3 +111,11 @@ FM/xlearn/small_train.txt.bin
 FM/xlearn/small_test.txt.bin
 
 *.pkl
+
+.idea/
+
+MatrixCF/model/matrixcf/
+
+MatrixCF/model/save_model/variables/
+
+MatrixCF/data/
