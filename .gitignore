@@ -119,3 +119,11 @@ MatrixCF/model/matrixcf/
 MatrixCF/model/save_model/variables/
 
 MatrixCF/data/
+
+FM/FM/model/save_model/variables/
+
+FM/FM/model/fm/
+
+FM/FM/data/test/
+
+FM/FM/data/
