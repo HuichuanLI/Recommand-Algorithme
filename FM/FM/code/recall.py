@@ -56,14 +56,14 @@ tree = BallTree(np.array(item_emb_numpy), leaf_size=10)
 dist, ind = tree.query([item_emb_numpy[0]], k=20)
 print(ind)
 # write in redis and file
-import redis
-pool = redis.ConnectionPool(host='127.0.0.1', port='6379', db=1)
-r = redis.Redis(connection_pool=pool)
-
-recall_result_tofile = open("../data/recall.result", "w")
-for k, v in user_emb_dic.items():
-    dist, ind = tree.query([v], k=20)
-    res = str(k) + "\t" + ",".join([str(item_id[i]) for i in ind[0]])
-    r.set(str(k), ",".join([str(item_id[i]) for i in ind[0]]), nx=True)
-    recall_result_tofile.write(res + "\n")
-
+# import redis
+# pool = redis.ConnectionPool(host='127.0.0.1', port='6379', db=1)
+# r = redis.Redis(connection_pool=pool)
+#
+# recall_result_tofile = open("../data/recall.result", "w")
+# for k, v in user_emb_dic.items():
+#     dist, ind = tree.query([v], k=20)
+#     res = str(k) + "\t" + ",".join([str(item_id[i]) for i in ind[0]])
+#     r.set(str(k), ",".join([str(item_id[i]) for i in ind[0]]), nx=True)
+#     recall_result_tofile.write(res + "\n")
+#
