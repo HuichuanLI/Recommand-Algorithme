@@ -38,7 +38,7 @@ class DEEPFM(object):
         # 输入
         input_dic = {}
         for f in self.feature_name_list:
-            input_dic[f] = tf.keras.Input(shape=(1, ), name=f, dtype=tf.int64)
+            input_dic[f] = tf.keras.Input(shape=(1,), name=f, dtype=tf.int64)
 
         # embedding and w
         self.embed = tf.keras.layers.Embedding(self.feature_size,
@@ -222,7 +222,7 @@ class DEEPFM(object):
                 train_result = self.train_step(train_ds)
                 eval_result = self.eval_step(test_ds)
                 if train_result[self.metric_auc.name] > 0.5 or eval_result[
-                        self.metric_auc.name] > 0.5:
+                    self.metric_auc.name] > 0.5:
                     self.manager.save(checkpoint_number=epoch,
                                       check_interval=True)
 

@@ -127,3 +127,23 @@ FM/FM/model/fm/
 FM/FM/data/test/
 
 FM/FM/data/
+
+FM/project3/model/save_model_dssm_user/
+
+FM/project3/model/save_model/variables/
+
+FM/project3/model/save_model_dssm_item/variables/
+
+DCN/project4/data/test/
+
+DCN/project4/model/dcn/checkpoint
+
+*.data-00000-of-00001
+
+FM/project3/model/deepfm/checkpoint
+
+*.pb
+
+*.index
+
+*.tfrecord
