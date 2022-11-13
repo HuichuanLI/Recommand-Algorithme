@@ -1,0 +1,19 @@
+channels:
+- conda-forge
+dependencies:
+- python=3.9.12
+- pip<=22.0.4
+- pip:
+  - mlflow
+  - bcrypt==3.2.0
+  - boto3==1.22.1
+  - defusedxml==0.7.1
+  - dill==0.3.4
+  - keras==2.8.0
+  - pandas==1.4.2
+  - pillow==9.1.0
+  - pyopenssl==22.0.0
+  - scipy==1.8.0
+  - tblib==1.7.0
+  - tensorflow==2.8.0
+name: mlflow-env

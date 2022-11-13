@@ -1,0 +1,11 @@
+name: graph_embed
+
+conda_env: conda.yaml
+
+entry_points:
+  main:
+    parameters:
+      data_path: path
+      model_path: path
+      lr: {type: float, default: 0.001}
+    command: "python sdne.py -lr {lr} -data_path {data_path} -model_path {model_path}"
