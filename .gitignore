@@ -147,3 +147,9 @@ FM/project3/model/deepfm/checkpoint
 *.index
 
 *.tfrecord
+
+MMOE/project5/data/
+
+MMOE/project5/model/mmoe/checkpoint
+
+FM/project3/model/dssm/checkpoint
