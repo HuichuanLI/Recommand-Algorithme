@@ -26,7 +26,7 @@ def reconstruction_loss(beta):
         B = tf.ones_like(y_true, dtype=tf.float32)
         A = tf.ones_like(y_true, dtype=tf.float32) * beta
         B = tf.where(y_true > 0, A, B)  # 权重默认都是1，y_true中的非0项权重为beta(beta>1)
-        sub = tf.subtract(y_true, y_pred) ** 2 * B
+        sub = tf.subtract(y_true, y_pred) ** 2 * By
         return tf.reduce_mean(tf.reduce_sum(sub, axis=1), axis=0)  # 行内（向量的各个元素）求和，再行间（一个批次内的多个样本）求平均
 
     return loss

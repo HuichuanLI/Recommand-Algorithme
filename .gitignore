@@ -153,3 +153,9 @@ MMOE/project5/data/
 MMOE/project5/model/mmoe/checkpoint
 
 FM/project3/model/dssm/checkpoint
+
+*.tfrecords
+
+一个简单的推荐系统/data/
+
+一个简单的推荐系统/ml_platform/checkpoint/
