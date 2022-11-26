@@ -11,13 +11,14 @@ from inputs import InputFn
 from auc import AUCUtil
 # from mf import *
 # from dnn import *
-# from deepfm import *
+from deepfm import *
 # from dcn import *
-from fm import *
+# from fm import *
 # from doubletower import *
 from saved_model import *
 
 # 初始化对应
+print(config)
 local_ps = PS(config['embedding_dim'])  # 参数服务
 train_metric = AUCUtil()  # 评估
 test_metric = AUCUtil()  # 评估

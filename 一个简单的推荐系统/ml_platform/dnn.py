@@ -10,7 +10,7 @@ import tensorflow.compat.v1 as tf
 tf.disable_v2_behavior()
 
 config = {
-    "feature_len": 10,
+    "feature_len": 8,
     "embedding_dim": 5,
     "label_len": 1,
     "n_parse_threads": 4,
@@ -23,9 +23,9 @@ config = {
     "activation_function": tf.nn.relu,
     "dnn_l2": 0.1,
 
-    "train_file": "../data1/train",
-    "test_file": "../data1/val",
-    "saved_embedding": "../data1/saved_dnn_embedding",
+    "train_file": "../data/train",
+    "test_file": "../data/val",
+    "saved_embedding": "../data/saved_dnn_embedding",
     "max_steps": 10000,
     "train_log_iter": 1000,
     "test_show_step": 1000,
@@ -34,7 +34,7 @@ config = {
     "saved_checkpoint": "checkpoint",
     "checkpoint_name": "dnn",
 
-    "saved_pb": "../data1/saved_model",
+    "saved_pb": "../data/saved_model",
 
     "input_tensor": ["input_tensor"],
     "output_tensor": ["output_tensor"]
@@ -50,8 +50,8 @@ def nn_tower(
         out = tf.layers.dense(
             out,
             units=num,
-            kernel_initializer=tf.contrib.layers.xavier_initializer(),
-            kernel_regularizer=tf.contrib.layers.l2_regularizer(l2),
+            kernel_initializer=tf.compat.v1.keras.initializers.glorot_normal(),
+            # kernel_regularizer=tf.contrib.layers.l2_regularizer(l2),
             use_bias=use_bias,
             activation=activation,
             name=name + "/layer_" + str(i),

@@ -25,7 +25,7 @@ class InputFn:
     def input_fn(self, data_dir, is_test=False):
         def _parse_example(example):
             features = {
-                "feature": tf.io.FixedLenFeature([4], tf.int64),
+                "feature": tf.io.FixedLenFeature([8], tf.int64),
                 "label": tf.io.FixedLenFeature([1], tf.float32),
             }
             return tf.io.parse_single_example(example, features)
@@ -84,41 +84,41 @@ class InputFn:
         return iterator, iterator.get_next()
 
 
-if __name__ == '__main__':
-    from ps import PS
-
-    local_ps = PS(8)
-    config = {
-        "feature_len": 4,
-        "embedding_dim": 17,
-        "label_len": 1,
-        "n_parse_threads": 4,
-        "shuffle_buffer_size": 1024,
-        "prefetch_buffer_size": 1,
-        "batch": 16,
-        "learning_rate": 0.01,
-
-        "train_file": "/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个简单的推荐系统/data/train",
-        "test_file": "/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个简单的推荐系统/data/val",
-        "saved_embedding": "../data/saved_dnn_embedding",
-        "max_steps": 200000,
-        "train_log_iter": 1000,
-        "test_show_step": 1000,
-        "last_test_auc": 0.2,
-
-        "saved_checkpoint": "checkpoint",
-        "checkpoint_name": "dnn",
-
-        "saved_pb": "../data1/saved_model",
-
-        "input_tensor": ["input_tensor"],
-        "output_tensor": ["output_tensor"]
-    }
-
-    inputs = InputFn(local_ps, config)
-    data_dir = "/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个简单的推荐系统/data/train"
-    train_itor, train_inputs = inputs.input_fn(data_dir, is_test=False)
-    with tf.Session() as sess:
-        sess.run(train_itor.initializer)
-        for i in range(1):
-            print(sess.run(train_inputs))
+# if __name__ == '__main__':
+#     from ps import PS
+#
+#     local_ps = PS(8)
+#     config = {
+#         "feature_len": 4,
+#         "embedding_dim": 17,
+#         "label_len": 1,
+#         "n_parse_threads": 4,
+#         "shuffle_buffer_size": 1024,
+#         "prefetch_buffer_size": 1,
+#         "batch": 16,
+#         "learning_rate": 0.01,
+#
+#         "train_file": "/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个简单的推荐系统/data/train",
+#         "test_file": "/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个简单的推荐系统/data/val",
+#         "saved_embedding": "../data/saved_dnn_embedding",
+#         "max_steps": 200000,
+#         "train_log_iter": 1000,
+#         "test_show_step": 1000,
+#         "last_test_auc": 0.2,
+#
+#         "saved_checkpoint": "checkpoint",
+#         "checkpoint_name": "dnn",
+#
+#         "saved_pb": "../data1/saved_model",
+#
+#         "input_tensor": ["input_tensor"],
+#         "output_tensor": ["output_tensor"]
+#     }
+#
+#     inputs = InputFn(local_ps, config)
+#     data_dir = "/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个简单的推荐系统/data/train"
+#     train_itor, train_inputs = inputs.input_fn(data_dir, is_test=False)
+#     with tf.Session() as sess:
+#         sess.run(train_itor.initializer)
+#         for i in range(1):
+#             print(sess.run(train_inputs))
