@@ -11,7 +11,7 @@ import json
 
 
 def save_redis(items, db=1):
-    redis_url = 'redis://:123456@127.0.0.1:6379/' + str(db)
+    redis_url = 'redis://127.0.0.1:6379/' + str(db)
     pool = redis.from_url(redis_url)
     try:
         for item in items:
@@ -24,7 +24,7 @@ def ext_feature():
     names = ['goods_id', 'user_id', 'user_session', 'user_type', 'user_cate1',
              'user_cate2', 'user_cate3', 'user_env', 'label']
 
-    raw_data_path = "../data2/rawdata"
+    raw_data_path = "../data/rawdata"
     files_path = []
     for file in os.listdir(raw_data_path):
         files_path.append(os.path.join(raw_data_path, file))
