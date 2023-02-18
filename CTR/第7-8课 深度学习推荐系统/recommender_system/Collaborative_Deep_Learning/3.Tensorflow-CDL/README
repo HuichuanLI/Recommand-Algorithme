@@ -1,0 +1,16 @@
+Collaborative Deep Learning (CDL)
+(Wang, H., Wang, N., & Yeung, D. Y. (2015, August). Collaborative deep learning for recommender systems. In Proceedings of the 21th ACM SIGKDD International Conference on Knowledge Discovery and Data Mining (pp. 1235-1244). ACM.)
+
+Python (Tensorflow) Implementation
+
+Dataset : politic_old and politic_new (legislative roll-call dataset)
+
+politic_old : made by Yupeng Gu 
+(Gu, Y., Sun, Y., Jiang, N., Wang, B., & Chen, T. (2014, August). Topic-factorized ideal point estimation model for legislative voting network. In Proceedings of the 20th ACM SIGKDD international conference on Knowledge discovery and data mining (pp. 183-192). ACM.)
+1990~2013 legislative rollcall dataset (THOMAS)
+
+politic_new : made by Kyungwoo Song (under the review paper)
+1990~2016 legislative rollcall dataset (from Govtrack.com)
+
+You can download politic_old from https://goo.gl/o5Uxle
+You can download politic_new from https://goo.gl/TFvcBc

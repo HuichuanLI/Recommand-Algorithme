@@ -1,0 +1,161 @@
+
+WD/data/wd/
+
+WD/data/wd_export/
+
+*.html
+
+itemCF/MovieLensRecSys/.idea/
+
+user_portrait_recall/
+
+*.h5
+
+NCF/.ipynb_checkpoints/
+
+NCF/Data_Javier/
+
+MF/._.DS_Store
+
+MF/imgs/
+
+recommendation_system_codes/movielens/ml-1m/
+
+recommendation_system_codes/163_music_playlist.txt
+
+recommendation_system_codes/163_music_suprise_format.txt
+
+recommendation_system_codes/popular.playlist
+
+recommendation_system_codes/playlist.pkl
+
+recommendation_system_codes/song.pkl
+
+recommendation_system_codes/popular_song.pkl
+
+recommendation_system_codes/popular_playlist.pkl
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/.ipynb_checkpoints/
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/DAE_based_recommender_system/azkaban/AutoRecAllSplits/
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/DAE_based_recommender_system/ratings.dat
+
+*.dat
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/Collaborative_Deep_Learning/1.MXNet-for-CDL/
+
+*.zip
+
+CTR/第五课 深度学习CTR预估(上)/data/
+
+CTR/第六课 深度学习CTR预估(下)/ctr_data.txt
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/Youtube_recommender_system/.ipynb_checkpoints/
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/Youtube_recommender_system/
+
+DAE/recs.tsv
+
+CTR/第五课 深度学习CTR预估(上)/ctr_data.txt
+
+CTR/第五课 深度学习CTR预估(上)/.ipynb_checkpoints/
+
+*.csv
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/Collaborative_Deep_Learning/3.Tensorflow-CDL/.idea/
+
+CTR/第六课 深度学习CTR预估(下)/.ipynb_checkpoints/
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/DAE_based_recommender_system/test/testData_uRec/
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/data/
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/Neural_Collaborative_Filtering/Data/
+
+*.pyc
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/DAE_based_recommender_system/test/testData_iRec/
+
+*.lan
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/DAE_based_recommender_system/azkaban/AutoRec/
+
+*.bak
+
+CTR/第7-8课 深度学习推荐系统/recommender_system/DAE_based_recommender_system/reco_encoder/data/__init__.py
+
+*.tsv
+
+Bandit/.ipynb_checkpoints/
+
+*.txt
+
+关联规则/code/MovieLens/.ipynb_checkpoints/
+
+*.pl
+
+*.libfm
+
+FM/xlearn/.ipynb_checkpoints/
+
+GBDT\+LR/gbm_lr/.idea/
+
+suprise/image_svd/
+
+
+*.exe
+
+FM/xlearn/small_train.txt.bin
+
+FM/xlearn/small_test.txt.bin
+
+*.pkl
+
+.idea/
+
+MatrixCF/model/matrixcf/
+
+MatrixCF/model/save_model/variables/
+
+MatrixCF/data/
+
+FM/FM/model/save_model/variables/
+
+FM/FM/model/fm/
+
+FM/FM/data/test/
+
+FM/FM/data/
+
+FM/project3/model/save_model_dssm_user/
+
+FM/project3/model/save_model/variables/
+
+FM/project3/model/save_model_dssm_item/variables/
+
+DCN/project4/data/test/
+
+DCN/project4/model/dcn/checkpoint
+
+*.data-00000-of-00001
+
+FM/project3/model/deepfm/checkpoint
+
+*.pb
+
+*.index
+
+*.tfrecord
+
+MMOE/project5/data/
+
+MMOE/project5/model/mmoe/checkpoint
+
+FM/project3/model/dssm/checkpoint
+
+*.tfrecords
+
+一个简单的推荐系统/data/
+
+一个简单的推荐系统/ml_platform/checkpoint/
