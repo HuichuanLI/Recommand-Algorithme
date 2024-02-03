@@ -11,9 +11,9 @@ from inputs import InputFn
 from auc import AUCUtil
 
 # from dnn import *
-from can import *
+# from can import *
 # from mind import *
-# from ple import *
+from ple import *
 # from dat import *
 # from fibinet import *
 

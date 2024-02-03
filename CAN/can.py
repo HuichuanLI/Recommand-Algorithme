@@ -4,7 +4,7 @@
 # @Moto   : Knowledge comes from decomposition
 
 from co_action_unit import co_action_unit, mlp_layer, out_layer, Embedding
-from AutoDL.models.common import get_loss
+# from AutoDL.models.common import get_loss
 import tensorflow as tf
 
 
