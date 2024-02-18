@@ -161,3 +161,5 @@ FM/project3/model/dssm/checkpoint
 一个简单的推荐系统/ml_platform/checkpoint/
 
 *.db
+
+DAT/data/
