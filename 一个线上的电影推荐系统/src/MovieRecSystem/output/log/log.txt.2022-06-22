@@ -1,0 +1,7 @@
+2022-06-22 13:17:52,237 REC_SYS __init__.py redis Config is:{"host": "121.40.96.93", "port": 6379, "password": "***", "db": 1, "socket_timeout": 3000, "socket_connect_timeout": 3000}
+2022-06-22 13:26:27,291 __init__.py redis Config is:{"host": "121.40.96.93", "port": 6379, "password": "***", "db": 1, "socket_timeout": 3000, "socket_connect_timeout": 3000}
+2022-06-22 13:26:52,205 __init__.py redis Config is:{"host": "121.40.96.93", "port": 6379, "password": "***", "db": 1, "socket_timeout": 3000, "socket_connect_timeout": 3000}
+2022-06-22 13:27:39,974 __init__.py redis Config is:{"host": "121.40.96.93", "port": 6379, "password": "***", "db": 1, "socket_timeout": 3000, "socket_connect_timeout": 3000}
+2022-06-22 13:31:05,876 __init__.py redis Config is:{"host": "121.40.96.93", "port": 6379, "password": "***", "db": 1, "socket_timeout": 3000, "socket_connect_timeout": 3000}
+2022-06-22 13:31:45,048 __init__.py redis Config is:{"host": "121.40.96.93", "port": 6379, "password": "***", "db": 1, "socket_timeout": 3000, "socket_connect_timeout": 3000}
+2022-06-22 13:31:45,048 __init__.py PID:6960, Parent PID:10112
