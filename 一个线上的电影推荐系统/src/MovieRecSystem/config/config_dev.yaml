@@ -1,5 +1,0 @@
-redis:
-  host: 121.40.96.93
-  port: 6379
-  password: 123456
-  db: 1
