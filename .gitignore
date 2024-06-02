@@ -163,3 +163,25 @@ FM/project3/model/dssm/checkpoint
 *.db
 
 DAT/data/
+
+一个线上的电影推荐系统/MovieRecProject06/data/features/dict/
+
+一个线上的电影推荐系统/MovieRecProject06/data/tmp/fm/dict/
+
+一个线上的电影推荐系统/MovieRecProject06/data/tmp/fm/
+
+一个线上的电影推荐系统/MovieRecProject06/data/tmp/item_cf/
+
+一个线上的电影推荐系统/MovieRecProject06/data/tmp/mf/
+
+一个线上的电影推荐系统/MovieRecProject06/data/tmp/user_cf/
+
+一个线上的电影推荐系统/MovieRecProject06/data/
+
+一个线上的电影推荐系统/MovieRecProject06/test/tmp/fm/fm_20240121_155900/dict/
+
+一个线上的电影推荐系统/MovieRecProject06/src/output/log/
+
+一个线上的电影推荐系统/MovieRecProject06/src/sql/
+
+一个线上的电影推荐系统/MovieRecProject06/test/tmp/fm/fm_20240121_155900/
