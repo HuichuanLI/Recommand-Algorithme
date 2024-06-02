@@ -1,0 +1,20 @@
+global:
+  model_root_dir: '.'
+redis:
+  host: '127.0.0.1'
+  port: 6379
+  password: ''
+  db: 2
+  max_connections: 10
+mysql:
+  creator: pymysql
+  host: '127.0.0.1'
+  user: 'gerry'
+  password: ''
+  database: 'rec_movie_system06'
+  port: 3306
+  charset: utf8
+  maxconnections: 100
+  mincached: 2
+  maxcached: 50
+  blocking: True
