@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 import sys
 import os
+
 sys.path.append(os.path.abspath("../src"))
+
 
 def t0_user_cf():
     from movie_offline.models import user_cf
@@ -53,6 +55,50 @@ def t3_fm():
     )
 
 
+def t4_lr():
+    from movie_offline.models.lr import lr
+
+    root_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/features'
+    output_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/tmp/lr'
+
+    lr.training(
+        root_dir, output_dir
+    )
+    lr.upload(
+        model_dir=output_dir
+    )
+
+
+def t5_gbdt_lr():
+    from movie_offline.models.gbdt_lr import gbdt_lr
+
+    root_dir = r'../data/features'
+    output_dir = r'tmp/gbdt_lr'
+
+    gbdt_lr.training(
+        root_dir, output_dir
+    )
+    gbdt_lr.upload(
+        model_dir=output_dir
+    )
+
+
+def t6_bpr():
+    from movie_offline.models.bpr import bpr
+    root_dir = r'../data/features'
+    output_dir = r'tmp/bpr'
+
+    # bpr.training(
+    #     root_dir, output_dir
+    # )
+
+    # bpr.export(
+    #     model_dir=output_dir
+    # )
+    bpr.upload(
+        model_dir=output_dir
+    )
+
 
 if __name__ == '__main__':
-    t3_fm()
+    t5_gbdt_lr()
