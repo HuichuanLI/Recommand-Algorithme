@@ -3,7 +3,10 @@ import os
 from typing import Dict, Any, Tuple, Optional
 
 from . import BasePredictor
-from .fm import FMUserSideLocalPredictor, FMSpuSideLocalPredictor
+from .bpr import BPRLocalPredictor
+from .fm import FMUserSideLocalPredictor, FMSpuSideLocalPredictor, FMLocalPredictor
+from .gbdt_lr import GBDTLrLocalPredictor
+from .lr import LrLocalPredictor
 from .. import logger
 from ..config import global_config
 
@@ -18,7 +21,11 @@ class ModelService(object):
     }
     name_to_predictor_cls_mapping = {
         'fm_user': ("fm", FMUserSideLocalPredictor),  # 第一个表示模型存储的文件夹名称，当前必须为fm；第二个表示处理器类对象
-        'fm_spu': ("fm", FMSpuSideLocalPredictor)
+        'fm_spu': ("fm", FMSpuSideLocalPredictor),
+        'fm_rank': ("fm", FMLocalPredictor),
+        'lr_rank': ("lr", LrLocalPredictor),
+        "gbdt_lr_rank": ("gbdt_lr", GBDTLrLocalPredictor),
+        "bpr_rank": ("bpr", BPRLocalPredictor),
     }
 
     @staticmethod
@@ -53,9 +60,7 @@ class ModelService(object):
         else:
             # TODO: 模型处理器创建这块儿的代码逻辑，存在多线程异常 --> 有可能会针对一个版本创建多个predictor预测器
             # 3. 创建predictor
-            print()
             _dir = os.path.join(global_config.model_root_dir, model_name, model_version)
-            print(_dir)
             predictor = model_predictor_cls(model_dir=_dir, model_version=model_version)
             # 4. 保存
             version2predictor[model_version] = predictor

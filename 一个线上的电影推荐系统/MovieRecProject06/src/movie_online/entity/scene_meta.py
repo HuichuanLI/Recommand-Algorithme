@@ -31,7 +31,8 @@ class SceneMeta(object):
         # 排序策略名称字符串
         self.ranks: List[str] = [
             # "deepfm", "new_item2:1.6"
-            "dummy", "recall_weighting"
+            # "dummy", "recall_weighting"
+            "fm"
         ]
         # 重排序策略名称字符串
         self.reranks: List[str] = []

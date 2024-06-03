@@ -49,6 +49,8 @@ class RankRunner(object):
         :param spus: 商品属性mapping对象
         :return:
         """
+        print("rank")
+        print(rank)
         try:
             if rank == 'dummy':
                 items = self.dummy.rank_items(items)

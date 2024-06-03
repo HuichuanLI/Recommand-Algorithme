@@ -129,3 +129,49 @@ class SpuFeatureService(object):
         print(f"调用redis:{key}")
         values: Dict[str, str] = RedisUtil.get_hash(key, fields=field_names)
         return {_k: _parse_value(_v) for _k, _v in values.items()}
+
+    @staticmethod
+    def get_stat_mean_rating(spu_ids) -> dict:
+        # TODO: 最好缓存, 自己考虑以下代码如何实现最好
+        _list = DB.query_sql(
+            sql="""
+                    select movie_id, mean_rating as movie_mean_rating 
+                    from movie_mean_rating_stat 
+                    where movie_id in %(ids)s
+                """,
+            ids=spu_ids
+        )
+        if len(_list) > 0:
+            return {v['movie_id']: v for v in _list}
+        return {}
+
+    @staticmethod
+    def get_stat_user_gender_mean_rating(spu_ids, user_gender: str) -> dict:
+        # TODO: 最好缓存, 自己考虑以下代码如何实现最好
+        _list = DB.query_sql(
+            sql="""
+                    select movie_id, mean_rating as movie_gender_mean_rating 
+                    from movie_user_gender_mean_rating_stat 
+                    where movie_id in %(ids)s and gender=%(gender)s
+                    """,
+            ids=spu_ids,
+            gender=user_gender
+        )
+        if len(_list) > 0:
+            return {v['movie_id']: v for v in _list}
+        return {}
+
+    @staticmethod
+    def get_stat_user_gender_mean_rating_v2(spu_ids) -> dict:
+        # TODO: 最好缓存, 自己考虑以下代码如何实现最好
+        _list = DB.query_sql(
+            sql="""
+                    select movie_id, m_mean_rating, f_mean_rating, m_total_rate_users, f_total_rate_users 
+                    from movie_user_gender_mean_rating_stat2 
+                    where movie_id in %(ids)s
+                    """,
+            ids=spu_ids
+        )
+        if len(_list) > 0:
+            return {v['movie_id']: v for v in _list}
+        return {}
