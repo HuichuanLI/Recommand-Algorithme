@@ -72,8 +72,8 @@ def t4_lr():
 def t5_gbdt_lr():
     from movie_offline.models.gbdt_lr import gbdt_lr
 
-    root_dir = r'../data/features'
-    output_dir = r'tmp/gbdt_lr'
+    root_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/features'
+    output_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/tmp/lr'
 
     gbdt_lr.training(
         root_dir, output_dir
@@ -85,12 +85,12 @@ def t5_gbdt_lr():
 
 def t6_bpr():
     from movie_offline.models.bpr import bpr
-    root_dir = r'../data/features'
-    output_dir = r'tmp/bpr'
+    root_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/features'
+    output_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/tmp/lr'
 
-    # bpr.training(
-    #     root_dir, output_dir
-    # )
+    bpr.training(
+        root_dir, output_dir
+    )
 
     # bpr.export(
     #     model_dir=output_dir
@@ -101,4 +101,4 @@ def t6_bpr():
 
 
 if __name__ == '__main__':
-    t5_gbdt_lr()
+    t6_bpr()
