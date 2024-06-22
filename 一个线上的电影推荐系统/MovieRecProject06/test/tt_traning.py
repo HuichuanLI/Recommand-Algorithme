@@ -98,7 +98,32 @@ def t6_bpr():
     bpr.upload(
         model_dir=output_dir
     )
+def t7_dssm():
+    from movie_offline.models.dssm import dssm
+
+    root_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/features'
+    output_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/tmp/lr'
+
+    dssm.training(
+        root_dir=root_dir,
+        output_dir=output_dir
+    )
+
+    # dssm.export(output_dir)
+
+    # dssm.process_spu_embedding(
+    #     root_dir=root_dir,
+    #     model_dir=output_dir
+    # )
+
+    # dssm.upload(
+    #     model_dir=output_dir
+    # )
+    #
+    # dssm.deploy(
+    #     model_dir=output_dir
+    # )
 
 
 if __name__ == '__main__':
-    t6_bpr()
+    t7_dssm()
