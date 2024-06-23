@@ -124,6 +124,22 @@ def t7_dssm():
     #     model_dir=output_dir
     # )
 
+def t8_deepfm():
+    from movie_offline.models.deepfm import deepfm
 
+    root_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/features'
+    output_dir = r'/Users/lhc456/Desktop/python/Recommand-Algorithme/Recommand-Algorithme/一个线上的电影推荐系统/MovieRecProject06/data/tmp/lr'
+
+
+    deepfm.training(
+        root_dir=root_dir,
+        output_dir=output_dir
+    )
+
+    deepfm.export(output_dir)
+
+    deepfm.upload(
+        model_dir=output_dir
+    )
 if __name__ == '__main__':
-    t7_dssm()
+    t8_deepfm()
