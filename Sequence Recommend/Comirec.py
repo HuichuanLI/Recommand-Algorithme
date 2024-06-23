@@ -167,49 +167,47 @@ import tensorflow as tf
 from tensorflow.keras import layers
 
 
-class MIND(tf.keras.Model):
+class ComirecDR(nn.Layer):
     def __init__(self, config):
-        super(MIND, self).__init__()
+        super(ComirecDR, self).__init__()
 
         self.config = config
         self.embedding_dim = self.config['embedding_dim']
         self.max_length = self.config['max_length']
         self.n_items = self.config['n_items']
 
-        self.item_emb = layers.Embedding(self.n_items, self.embedding_dim, mask_zero=True)
-        self.capsule = CapsuleNetwork(self.embedding_dim, self.max_length, bilinear_type=0,
+        self.item_emb = nn.Embedding(self.n_items, self.embedding_dim, padding_idx=0)
+        self.capsule = CapsuleNetwork(self.embedding_dim, self.max_length, bilinear_type=2,
                                       interest_num=self.config['K'])
-        self.loss_fun = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)
+        self.loss_fun = nn.CrossEntropyLoss()
         self.reset_parameters()
 
     def calculate_loss(self, user_emb, pos_item):
-        all_items = self.item_emb.embeddings
-        scores = tf.matmul(user_emb, tf.transpose(all_items))
-        return self.loss_fun(pos_item, scores)
+        all_items = self.item_emb.weight
+        scores = paddle.matmul(user_emb, all_items.transpose([1, 0]))
+        return self.loss_fun(scores, pos_item)
 
     def output_items(self):
-        return self.item_emb.embeddings
+        return self.item_emb.weight
 
-    def reset_parameters(self):
-        for weight in self.trainable_variables:
-            tf.keras.initializers.GlorotNormal()(weight)
+    def reset_parameters(self, initializer=None):
+        for weight in self.parameters():
+            paddle.nn.initializer.KaimingNormal(weight)
 
-    def call(self, item_seq, mask, item, train=True):
+    def forward(self, item_seq, mask, item, train=True):
 
         if train:
             seq_emb = self.item_emb(item_seq)  # Batch,Seq,Emb
-            item_e = tf.squeeze(self.item_emb(item), axis=1)
+            item_e = self.item_emb(item).squeeze(1)
 
             multi_interest_emb = self.capsule(seq_emb, mask)  # Batch,K,Emb
 
-            cos_res = tf.matmul(multi_interest_emb, tf.expand_dims(item_e, axis=-1))
-            k_index = tf.argmax(cos_res, axis=1)
+            cos_res = paddle.bmm(multi_interest_emb, item_e.squeeze(1).unsqueeze(-1))
+            k_index = paddle.argmax(cos_res, axis=1)
 
-            best_interest_emb = tf.Variable(
-                tf.random.uniform((multi_interest_emb.shape[0], multi_interest_emb.shape[2])))
-
+            best_interest_emb = paddle.rand((multi_interest_emb.shape[0], multi_interest_emb.shape[2]))
             for k in range(multi_interest_emb.shape[0]):
-                best_interest_emb[k, :].assign(multi_interest_emb[k, k_index[k], :])
+                best_interest_emb[k, :] = multi_interest_emb[k, k_index[k], :]
 
             loss = self.calculate_loss(best_interest_emb, item)
             output_dict = {
