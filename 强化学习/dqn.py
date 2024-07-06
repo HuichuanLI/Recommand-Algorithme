@@ -7,7 +7,7 @@ class DQNModel(tf.keras.Model):
     def __init__(self, num_items):
         super(DQNModel, self).__init__()
         self.dense1 = tf.keras.layers.Dense(64, activation='relu')
-        self.dense2 = tf.keras.layers.Dense(64, activation='relu')      
+        self.dense2 = tf.keras.layers.Dense(64, activation='relu')
         self.dense3 = tf.keras.layers.Dense(num_items, activation='linear')
 
     def call(self, inputs):
